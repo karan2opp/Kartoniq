@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { PainPoints } from './components/PainPoints';
@@ -17,6 +17,27 @@ import { StickyBottomCta } from './components/StickyBottomCta';
 import { Footer } from './components/Footer';
 
 export default function App() {
+  useEffect(() => {
+    const handleGlobalClick = (e: MouseEvent) => {
+      let target = e.target as HTMLElement | null;
+      while (target && target.tagName !== 'A') {
+        target = target.parentElement;
+      }
+      
+      if (target && target.tagName === 'A') {
+        const href = target.getAttribute('href');
+        if (href && href.startsWith('https://wa.me/')) {
+          if (typeof window !== 'undefined' && (window as any).fbq) {
+            (window as any).fbq('track', 'Lead');
+          }
+        }
+      }
+    };
+
+    document.addEventListener('click', handleGlobalClick);
+    return () => document.removeEventListener('click', handleGlobalClick);
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF7F2] text-[#291D11] font-sans antialiased selection:bg-[#E6D8C5] selection:text-[#291D11]">
       <Header />
