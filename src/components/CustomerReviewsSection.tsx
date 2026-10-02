@@ -502,8 +502,9 @@ export const CustomerReviewsSection: React.FC = () => {
                       >
                         <option value="Medium Carton (5-Ply)">Medium Carton (24×18×18", 5-Ply)</option>
                         <option value="Small Carton (3-Ply)">Small Carton (12×12×18", 3-Ply)</option>
-                        <option value="Combo (Medium + Small)">Combo (Medium + Small Boxes)</option>
-                        <option value="Bulk Carton Order">Bulk Order (15+ Boxes)</option>
+                        <option value="Cartons + Brown Tapes">Cartons + Brown Tapes (2"x65m)</option>
+                        <option value="Full Pack (Cartons + Tape + Bubble Wrap)">Full Pack (Cartons + Tape + Bubble Wrap)</option>
+                        <option value="Bulk Supplies Order">Bulk Order (15+ Items)</option>
                       </select>
                     </div>
 

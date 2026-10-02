@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { PainPoints } from './components/PainPoints';
+import { OrderEstimator } from './components/OrderEstimator';
 import { ProductSection } from './components/ProductSection';
+import { PainPoints } from './components/PainPoints';
 import { HelpChoose } from './components/HelpChoose';
 import { DeliveryOffer } from './components/DeliveryOffer';
 import { WhyKartoniq } from './components/WhyKartoniq';
@@ -43,8 +44,10 @@ export default function App() {
       <Header />
       <main className="flex-1">
         <Hero />
-        <PainPoints />
+        {/* Instant Order Estimator shifted to the top */}
+        <OrderEstimator />
         <ProductSection />
+        <PainPoints />
         <HelpChoose />
         <DeliveryOffer />
         <WhyKartoniq />

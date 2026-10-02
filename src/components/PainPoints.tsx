@@ -48,7 +48,7 @@ export const PainPoints: React.FC = () => {
                 No Last-Minute Search
               </h3>
               <p className="text-sm text-[#61482D] leading-relaxed">
-                Order before your move and get fresh, sturdy cartons delivered to your door within 24 hours.
+                Order before your move and get fresh, sturdy cartons delivered to your door next day.
               </p>
             </div>
           </div>

@@ -41,7 +41,7 @@ export const INITIAL_CUSTOMER_REVIEWS: CustomerReview[] = [
     location: 'Sector 76, Noida',
     rating: 1,
     date: '4 days ago',
-    review: 'Needed 6 boxes urgently within 2 hours on Sunday evening, but their policy is standard 24-hour scheduled delivery after advance payment. Had to buy dirty kirana boxes last minute. Please introduce an instant 2-hour express delivery option in Noida even if you charge extra!',
+    review: 'Needed 6 boxes urgently within 2 hours on Sunday evening, but their policy is standard next-day scheduled delivery after advance payment. Had to buy dirty kirana boxes last minute. Please introduce an instant 2-hour express delivery option in Noida even if you charge extra!',
     verified: true,
     boxTypeUsed: '6x Medium (5-Ply)',
     purpose: 'Emergency Shifting'
@@ -63,7 +63,7 @@ export const INITIAL_CUSTOMER_REVIEWS: CustomerReview[] = [
     location: 'Beta 2, Greater Noida',
     rating: 2,
     date: '6 days ago',
-    review: 'Boxes are undeniably sturdy 5-ply corrugated sheets, but they insist on 100% advance UPI payment on WhatsApp before dispatch. I prefer Cash on Delivery so I was hesitant initially. Delivery was done smoothly within 24 hours though.',
+    review: 'Boxes are undeniably sturdy 5-ply corrugated sheets, but they insist on 100% advance UPI payment on WhatsApp before dispatch. I prefer Cash on Delivery so I was hesitant initially. Delivery was done smoothly next day though.',
     verified: true,
     boxTypeUsed: '10x Medium (5-Ply)',
     purpose: 'Household Move'
@@ -129,7 +129,7 @@ export const INITIAL_CUSTOMER_REVIEWS: CustomerReview[] = [
     location: 'Sector 78, Noida',
     rating: 4,
     date: '2 weeks ago',
-    review: 'Good experience overall. Ordered via WhatsApp chat, paid through UPI. Received intact boxes in 24 hours. Would love if you also bundle brown tape rolls in the future!',
+    review: 'Good experience overall. Ordered via WhatsApp chat, paid through UPI. Received intact boxes next day. Would love if you also bundle brown tape rolls in the future!',
     verified: true,
     boxTypeUsed: '7x Medium, 5x Small',
     purpose: 'Studio Apartment Move'
@@ -217,7 +217,7 @@ export const INITIAL_CUSTOMER_REVIEWS: CustomerReview[] = [
     location: 'Gamma 2, Greater Noida',
     rating: 4,
     date: '1 month ago',
-    review: 'Reasonable price compared to market rates. Delivery arrived in standard 24 hours. The boxes are completely fresh and unused.',
+    review: 'Reasonable price compared to market rates. Delivery arrived promptly next day. The boxes are completely fresh and unused.',
     verified: true,
     boxTypeUsed: '8x Medium (5-Ply)',
     purpose: 'Home Storage'

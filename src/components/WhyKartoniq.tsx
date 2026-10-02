@@ -41,7 +41,7 @@ export const WhyKartoniq: React.FC = () => {
               <Clock className="w-6 h-6 text-[#291D11]" />
             </div>
             <h3 className="text-base sm:text-lg font-bold text-[#291D11] mb-2 font-display">
-              Within 24 Hours
+              Next Day Delivery
             </h3>
             <p className="text-xs sm:text-sm text-[#61482D] leading-relaxed">
               Get your cartons when you need them for your move without delay.

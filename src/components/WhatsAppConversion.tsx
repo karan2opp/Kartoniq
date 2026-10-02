@@ -1,6 +1,6 @@
 import React from 'react';
-import { MessageCircle, ShieldCheck, MapPin, Sparkles } from 'lucide-react';
-import { getWhatsAppUrl, WHATSAPP_DISPLAY_PHONE } from '../utils/whatsapp';
+import { MessageCircle, ShieldCheck, MapPin, Sparkles, Phone } from 'lucide-react';
+import { getWhatsAppUrl, WHATSAPP_DISPLAY_PHONE, CALL_PHONE_URL } from '../utils/whatsapp';
 
 export const WhatsAppConversion: React.FC = () => {
   return (
@@ -18,16 +18,16 @@ export const WhatsAppConversion: React.FC = () => {
             
             <div className="inline-flex items-center gap-2 bg-white/10 text-[#25D366] text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full mb-5 backdrop-blur-sm border border-white/10">
               <Sparkles className="w-4 h-4" />
-              <span>Fastest Way to Get Cartons</span>
+              <span>Fastest Way to Get Cartons & Supplies</span>
             </div>
 
             <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4 font-display">
-              Need Cartons for Your Move? <br />
+              Need Supplies for Your Move? <br />
               <span className="text-[#D4BEA1]">Let's Sort It Out.</span>
             </h2>
 
             <p className="text-base sm:text-lg text-[#E6D8C5] leading-relaxed mb-8 max-w-xl mx-auto">
-              Tell us where you're shifting from, when you're moving and roughly how many cartons you need. We'll help you figure out the rest.
+              Tell us where you're shifting from in Noida/Greater Noida, when you're moving, and how many cartons, brown tapes, or bubble wrap meters you need. We'll help you figure out the rest.
             </p>
 
             {/* Primary Action Button */}
@@ -43,8 +43,14 @@ export const WhatsAppConversion: React.FC = () => {
                 <span>CONNECT ON WHATSAPP NOW</span>
               </a>
 
-              <div className="text-sm sm:text-base font-bold text-[#D4BEA1] tracking-wider pt-2">
-                WhatsApp: <span className="text-white">{WHATSAPP_DISPLAY_PHONE}</span>
+              <div className="flex items-center justify-center gap-2 text-sm sm:text-base font-bold text-[#D4BEA1] tracking-wider pt-2">
+                <span>Contact / WhatsApp:</span>
+                <a 
+                  href={CALL_PHONE_URL}
+                  className="text-white hover:text-[#25D366] transition-colors underline decoration-dotted"
+                >
+                  {WHATSAPP_DISPLAY_PHONE}
+                </a>
               </div>
             </div>
 
@@ -52,7 +58,7 @@ export const WhatsAppConversion: React.FC = () => {
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-8 mt-8 border-t border-white/10 text-xs text-[#D4BEA1]">
               <div className="flex items-center justify-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-[#25D366] shrink-0" />
-                <span>100% Genuine Cartons</span>
+                <span>100% Genuine Supplies</span>
               </div>
               <div className="flex items-center justify-center gap-1.5">
                 <MapPin className="w-4 h-4 text-[#25D366] shrink-0" />

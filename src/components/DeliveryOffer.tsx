@@ -1,20 +1,8 @@
-import React, { useState } from 'react';
-import { Truck, MapPin, Zap, CheckCircle2, MessageCircle, Plus, Minus, ArrowRight } from 'lucide-react';
-import { getWhatsAppUrl, getOrderWhatsAppUrl } from '../utils/whatsapp';
+import React from 'react';
+import { Truck, MapPin, Zap, CheckCircle2, MessageCircle, Calculator, ArrowUp } from 'lucide-react';
+import { getWhatsAppUrl, WHATSAPP_DISPLAY_PHONE } from '../utils/whatsapp';
 
 export const DeliveryOffer: React.FC = () => {
-  // Live quick estimation calculator
-  const [smallQty, setSmallQty] = useState<number>(10);
-  const [mediumQty, setMediumQty] = useState<number>(5);
-
-  const smallPrice = 69;
-  const mediumPrice = 149;
-  const itemsTotal = smallQty * smallPrice + mediumQty * mediumPrice;
-  const qualifiesForFreeDelivery = itemsTotal >= 999;
-  const deliveryFee = qualifiesForFreeDelivery ? 0 : (itemsTotal > 0 ? 99 : 0);
-  const grandTotal = itemsTotal + deliveryFee;
-  const amountNeededForFree = 999 - itemsTotal;
-
   return (
     <section id="delivery-offer" className="py-12 sm:py-16 lg:py-20 bg-white border-b border-[#E6D8C5]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
@@ -38,7 +26,7 @@ export const DeliveryOffer: React.FC = () => {
             <span>•</span>
             <span className="flex items-center gap-1">
               <Zap className="w-4 h-4 text-[#25D366]" />
-              Delivered within 24 hours
+              Delivered Next Day
             </span>
           </div>
         </div>
@@ -80,7 +68,7 @@ export const DeliveryOffer: React.FC = () => {
                 FREE DELIVERY
               </div>
               <p className="text-sm text-[#E6D8C5] leading-relaxed">
-                Get your cartons delivered completely free to your doorstep within 24 hours.
+                Get your cartons, brown tapes, and bubble wrap delivered completely free to your doorstep next day.
               </p>
             </div>
           </div>
@@ -88,7 +76,7 @@ export const DeliveryOffer: React.FC = () => {
         </div>
 
         {/* Delivery Examples comparison (Encouraging Free Delivery) */}
-        <div className="bg-[#FAF7F2] border border-[#E6D8C5] rounded-2xl p-6 sm:p-8 mb-12">
+        <div className="bg-[#FAF7F2] border border-[#E6D8C5] rounded-2xl p-6 sm:p-8 mb-8">
           <h3 className="text-lg sm:text-xl font-bold text-[#291D11] mb-4 text-center sm:text-left font-display">
             Delivery Examples:
           </h3>
@@ -98,7 +86,7 @@ export const DeliveryOffer: React.FC = () => {
             {/* Example 1 */}
             <div className="bg-white p-5 rounded-xl border border-[#E6D8C5]">
               <div className="text-xs font-bold text-[#7F613D] uppercase tracking-wider mb-1">
-                Example 1
+                Example 1 (Standard)
               </div>
               <div className="text-base font-extrabold text-[#291D11] mb-3">
                 10 Small Cartons
@@ -119,17 +107,17 @@ export const DeliveryOffer: React.FC = () => {
               </div>
             </div>
 
-            {/* Example 2 (Smart upgrade) */}
+            {/* Example 2 (Smart upgrade with tape & boxes) */}
             <div className="bg-white p-5 rounded-xl border-2 border-[#25D366]/60 relative">
               <div className="text-xs font-bold text-[#25D366] uppercase tracking-wider mb-1">
                 Example 2 (Smarter Choice)
               </div>
               <div className="text-base font-extrabold text-[#291D11] mb-3">
-                15 Small Cartons
+                12 Small Cartons + 3 Brown Tapes
               </div>
               <div className="space-y-1.5 text-sm text-[#42301D] border-t border-[#F3ECE1] pt-3">
                 <div className="flex justify-between">
-                  <span>15 × ₹69</span>
+                  <span>Cartons + Tapes</span>
                   <span className="font-semibold">₹1,035</span>
                 </div>
                 <div className="flex justify-between text-[#25D366] font-semibold">
@@ -142,114 +130,37 @@ export const DeliveryOffer: React.FC = () => {
                 </div>
               </div>
               <div className="text-[11px] text-[#7F613D] mt-2 font-medium bg-[#FAF7F2] p-1.5 rounded text-center">
-                💡 5 extra cartons instead of spending on delivery!
+                💡 Free delivery unlocked with extra boxes and sealing tape instead of paying delivery charges!
               </div>
             </div>
 
           </div>
         </div>
 
-        {/* Live Quantity Estimator & 1-Click WhatsApp Order */}
-        <div className="bg-gradient-to-br from-[#291D11] to-[#42301D] text-white rounded-3xl p-6 sm:p-8 shadow-xl">
-          <div className="text-center max-w-xl mx-auto mb-6">
-            <span className="text-xs uppercase font-bold tracking-widest text-[#25D366] block mb-1">
-              Instant Order Estimator
-            </span>
-            <h3 className="text-xl sm:text-2xl font-bold font-display text-white">
-              Estimate Your Move & Order in 1-Click
-            </h3>
-            <p className="text-xs sm:text-sm text-[#D4BEA1] mt-1">
-              Adjust carton quantities to see your estimated total and unlock free delivery.
-            </p>
+        {/* Quick jump to Top Estimator & WhatsApp CTA */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#291D11] text-white p-5 sm:p-6 rounded-2xl">
+          <div>
+            <div className="font-bold text-base sm:text-lg">Want to calculate your exact moving supplies total?</div>
+            <div className="text-xs sm:text-sm text-[#D4BEA1]">Use the live Instant Order Estimator at the top of the page.</div>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-6">
-            
-            {/* Small selector */}
-            <div className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-4 flex items-center justify-between">
-              <div>
-                <div className="font-bold text-sm text-white">Small Carton</div>
-                <div className="text-xs text-[#D4BEA1]">12×12×18" • ₹69 each</div>
-              </div>
-              <div className="flex items-center gap-3 bg-white/20 rounded-xl p-1">
-                <button
-                  type="button"
-                  onClick={() => setSmallQty(Math.max(0, smallQty - 1))}
-                  className="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/30 text-white flex items-center justify-center transition-colors font-bold text-base"
-                  aria-label="Decrease small cartons"
-                >
-                  <Minus className="w-4 h-4" />
-                </button>
-                <span className="w-7 text-center font-bold text-base text-white">{smallQty}</span>
-                <button
-                  type="button"
-                  onClick={() => setSmallQty(smallQty + 1)}
-                  className="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/30 text-white flex items-center justify-center transition-colors font-bold text-base"
-                  aria-label="Increase small cartons"
-                >
-                  <Plus className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
-
-            {/* Medium selector */}
-            <div className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-4 flex items-center justify-between">
-              <div>
-                <div className="font-bold text-sm text-white">Medium Carton</div>
-                <div className="text-xs text-[#D4BEA1]">24×18×18" (5-Ply) • ₹149 each</div>
-              </div>
-              <div className="flex items-center gap-3 bg-white/20 rounded-xl p-1">
-                <button
-                  type="button"
-                  onClick={() => setMediumQty(Math.max(0, mediumQty - 1))}
-                  className="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/30 text-white flex items-center justify-center transition-colors font-bold text-base"
-                  aria-label="Decrease medium cartons"
-                >
-                  <Minus className="w-4 h-4" />
-                </button>
-                <span className="w-7 text-center font-bold text-base text-white">{mediumQty}</span>
-                <button
-                  type="button"
-                  onClick={() => setMediumQty(mediumQty + 1)}
-                  className="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/30 text-white flex items-center justify-center transition-colors font-bold text-base"
-                  aria-label="Increase medium cartons"
-                >
-                  <Plus className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
-
-          </div>
-
-          {/* Calculator summary & WhatsApp button */}
-          <div className="max-w-2xl mx-auto bg-black/30 border border-white/10 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div>
-              <div className="text-xs text-[#D4BEA1]">
-                Total Cartons: <span className="text-white font-bold">{smallQty + mediumQty}</span> | Delivery: <span className={qualifiesForFreeDelivery ? "text-[#25D366] font-bold" : "text-white"}>{qualifiesForFreeDelivery ? "FREE" : "₹99"}</span>
-              </div>
-              <div className="text-2xl sm:text-3xl font-extrabold text-white mt-0.5">
-                ₹{grandTotal}{' '}
-                <span className="text-xs font-normal text-[#D4BEA1]">estimated</span>
-              </div>
-              {!qualifiesForFreeDelivery && itemsTotal > 0 && (
-                <div className="text-[11px] text-[#25D366] font-medium mt-0.5">
-                  Add ₹{amountNeededForFree} more to unlock FREE delivery!
-                </div>
-              )}
-            </div>
-
+          <div className="flex items-center gap-3 w-full sm:w-auto">
             <a
-              id="calculator-whatsapp-cta"
-              href={getOrderWhatsAppUrl(smallQty, mediumQty, grandTotal, qualifiesForFreeDelivery)}
+              href="#order-estimator"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold px-5 py-3 rounded-xl border border-white/20 transition-all whitespace-nowrap"
+            >
+              <ArrowUp className="w-4 h-4" />
+              <span>Go to Estimator ↑</span>
+            </a>
+            <a
+              href={getWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#1EBE5D] text-white text-sm sm:text-base font-bold px-6 py-3.5 rounded-xl shadow-lg transition-all active:scale-[0.99] whitespace-nowrap"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white text-xs sm:text-sm font-bold px-5 py-3 rounded-xl transition-all whitespace-nowrap"
             >
-              <MessageCircle className="w-5 h-5 fill-white text-white shrink-0" />
-              <span>SEND THIS ORDER ON WHATSAPP</span>
+              <MessageCircle className="w-4 h-4 fill-white text-white" />
+              <span>Order on WhatsApp</span>
             </a>
           </div>
-
         </div>
 
       </div>

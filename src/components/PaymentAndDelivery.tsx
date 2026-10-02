@@ -46,11 +46,11 @@ export const PaymentAndDelivery: React.FC = () => {
               </span>
 
               <h3 className="text-xl sm:text-2xl font-extrabold text-[#291D11] tracking-tight mb-3 font-display">
-                Delivered Within 24 Hours
+                Delivered Next Day
               </h3>
 
               <p className="text-sm sm:text-base text-[#61482D] leading-relaxed mb-4">
-                Currently serving <strong>Noida & Greater Noida</strong>. Once your order and payment are confirmed, KARTONIQ arranges delivery directly to your provided address within the next 24 hours.
+                Currently serving <strong>Noida & Greater Noida</strong>. Once your order and payment are confirmed, KARTONIQ arranges delivery directly to your provided address next day.
               </p>
             </div>
 

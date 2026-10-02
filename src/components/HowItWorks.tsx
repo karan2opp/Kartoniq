@@ -24,7 +24,7 @@ export const HowItWorks: React.FC = () => {
     {
       num: '04',
       title: 'Receive',
-      desc: 'Get your cartons delivered to your doorstep within 24 hours.',
+      desc: 'Get your cartons delivered to your doorstep next day.',
       icon: Truck,
     },
   ];

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Package, MessageCircle, X } from 'lucide-react';
-import { getWhatsAppUrl, WHATSAPP_DISPLAY_PHONE } from '../utils/whatsapp';
+import { Package, MessageCircle, X, Phone } from 'lucide-react';
+import { getWhatsAppUrl, WHATSAPP_DISPLAY_PHONE, CALL_PHONE_URL } from '../utils/whatsapp';
 
 export const Footer: React.FC = () => {
   const [modalContent, setModalContent] = useState<'privacy' | 'terms' | null>(null);
@@ -27,20 +27,30 @@ export const Footer: React.FC = () => {
             </p>
           </div>
 
-          {/* Location & WhatsApp */}
-          <div className="text-center md:text-right">
+          {/* Location & Contact */}
+          <div className="text-center md:text-right flex flex-col items-center md:items-end gap-1.5">
             <p className="text-sm font-semibold text-white">
               Serving Noida & Greater Noida
             </p>
-            <a
-              href={getWhatsAppUrl()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm text-[#25D366] hover:text-[#1EBE5D] font-bold mt-1 transition-colors"
-            >
-              <MessageCircle className="w-4 h-4" />
-              WhatsApp: {WHATSAPP_DISPLAY_PHONE}
-            </a>
+            <div className="flex items-center gap-3 flex-wrap justify-center md:justify-end">
+              <a
+                href={getWhatsAppUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm text-[#25D366] hover:text-[#1EBE5D] font-bold transition-colors"
+              >
+                <MessageCircle className="w-4 h-4" />
+                WhatsApp
+              </a>
+              <span className="text-white/30">•</span>
+              <a
+                href={CALL_PHONE_URL}
+                className="inline-flex items-center gap-1.5 text-sm text-[#D4BEA1] hover:text-white font-bold transition-colors"
+              >
+                <Phone className="w-3.5 h-3.5 text-[#25D366]" />
+                Contact: {WHATSAPP_DISPLAY_PHONE}
+              </a>
+            </div>
           </div>
 
         </div>
@@ -107,7 +117,7 @@ export const Footer: React.FC = () => {
                 </h3>
                 <div className="text-xs sm:text-sm text-[#61482D] space-y-2.5 leading-relaxed">
                   <p>
-                    <strong>Delivery Area:</strong> KARTONIQ supplies cartons across Noida & Greater Noida. Delivery is scheduled within 24 hours after order and advance payment confirmation.
+                    <strong>Delivery Area:</strong> KARTONIQ supplies cartons across Noida & Greater Noida. Delivery is scheduled next day after order and advance payment confirmation.
                   </p>
                   <p>
                     <strong>Payment:</strong> Orders require 100% advance payment via WhatsApp (UPI/Instant Transfer) prior to delivery dispatch.

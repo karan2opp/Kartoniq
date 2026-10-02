@@ -1,6 +1,6 @@
 import React from 'react';
-import { MessageCircle, CheckCircle2, Truck, ShieldCheck, Sparkles } from 'lucide-react';
-import { getWhatsAppUrl, WHATSAPP_DISPLAY_PHONE } from '../utils/whatsapp';
+import { MessageCircle, CheckCircle2, Truck, ShieldCheck, Sparkles, Calculator, Phone } from 'lucide-react';
+import { getWhatsAppUrl, WHATSAPP_DISPLAY_PHONE, CALL_PHONE_URL } from '../utils/whatsapp';
 import heroImg from '../assets/images/hero_moving_cartons_1788167557985.jpg';
 
 export const Hero: React.FC = () => {
@@ -21,45 +21,88 @@ export const Hero: React.FC = () => {
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold text-[#291D11] tracking-tight leading-[1.12] mb-4 sm:mb-5 font-display">
               Moving House? <br className="hidden sm:block" />
-              <span className="text-[#A07E54]">Get Your Cartons</span> Delivered.
+              <span className="text-[#A07E54]">Cartons & Packing Supplies</span> Delivered.
             </h1>
 
             {/* Supporting Copy */}
             <p className="text-base sm:text-lg md:text-xl text-[#61482D] leading-relaxed mb-6 sm:mb-7 max-w-xl font-normal">
-              Don't waste hours hunting for boxes. <strong>KARTONIQ</strong> delivers quality moving cartons to your doorstep across Noida & Greater Noida within 24 hours.
+              Don't waste hours hunting for boxes and materials. <strong>KARTONIQ</strong> delivers 3-ply & 5-ply cartons, brown packaging tapes, and bubble wrap directly to your door in Noida & Greater Noida next day.
             </p>
 
             {/* Pricing Callout Card */}
-            <div className="w-full sm:w-auto bg-white/90 backdrop-blur-sm border border-[#E6D8C5] rounded-2xl p-4 sm:p-5 mb-7 shadow-sm flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
-              <div>
-                <div className="text-xs uppercase tracking-wider font-bold text-[#7F613D]">Starting Price</div>
-                <div className="text-2xl sm:text-3xl font-extrabold text-[#291D11]">
-                  Cartons from <span className="text-[#25D366] font-display">₹69</span>
-                </div>
+            <div className="w-full sm:w-auto bg-white/95 backdrop-blur-sm border border-[#E6D8C5] rounded-2xl p-4 sm:p-5 mb-7 shadow-xs">
+              <div className="flex items-center justify-between gap-3 mb-2.5">
+                <span className="text-xs uppercase tracking-wider font-extrabold text-[#7F613D]">
+                  Starting Prices
+                </span>
+                <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-[#25D366] bg-[#25D366]/10 px-2.5 py-1 rounded-full">
+                  <Truck className="w-3.5 h-3.5 text-[#25D366] shrink-0" />
+                  Free Delivery on ₹999+
+                </span>
               </div>
-              <div className="hidden sm:block w-px h-10 bg-[#E6D8C5]"></div>
-              <div className="bg-[#FAF7F2] border border-[#D4BEA1]/60 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold text-[#42301D] flex items-center gap-2">
-                <Truck className="w-4 h-4 text-[#25D366] shrink-0" />
-                <span>Free delivery on orders above ₹999</span>
+
+              {/* Desktop & Tablet: Kept strictly in ONE line */}
+              <div className="hidden sm:flex items-center gap-3 text-lg md:text-xl font-extrabold text-[#291D11] whitespace-nowrap">
+                <span>Cartons <strong className="text-[#25D366] font-display">₹69</strong></span>
+                <span className="text-[#D4BEA1] font-normal">•</span>
+                <span>Tape <strong className="text-[#25D366] font-display">₹69</strong></span>
+                <span className="text-[#D4BEA1] font-normal">•</span>
+                <span>Bubble Wrap <strong className="text-[#25D366] font-display">₹19/meter</strong></span>
+              </div>
+
+              {/* Mobile: Kept systematically one below another */}
+              <div className="sm:hidden flex flex-col gap-1.5 pt-0.5">
+                <div className="flex items-center justify-between bg-[#FAF7F2] border border-[#E6D8C5] px-3.5 py-2 rounded-xl text-sm font-bold text-[#291D11]">
+                  <span className="text-[#61482D]">Cartons</span>
+                  <span className="text-[#25D366] font-display font-extrabold text-base">₹69</span>
+                </div>
+                <div className="flex items-center justify-between bg-[#FAF7F2] border border-[#E6D8C5] px-3.5 py-2 rounded-xl text-sm font-bold text-[#291D11]">
+                  <span className="text-[#61482D]">Tape</span>
+                  <span className="text-[#25D366] font-display font-extrabold text-base">₹69</span>
+                </div>
+                <div className="flex items-center justify-between bg-[#FAF7F2] border border-[#E6D8C5] px-3.5 py-2 rounded-xl text-sm font-bold text-[#291D11]">
+                  <span className="text-[#61482D]">Bubble Wrap</span>
+                  <span className="text-[#25D366] font-display font-extrabold text-base">₹19/meter</span>
+                </div>
               </div>
             </div>
 
-            {/* Primary CTA */}
-            <div className="w-full sm:w-auto flex flex-col items-center sm:items-start gap-2">
-              <a
-                id="hero-primary-cta"
-                href={getWhatsAppUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#1EBE5D] text-white text-base sm:text-lg font-extrabold px-8 py-4 rounded-2xl shadow-lg shadow-[#25D366]/25 hover:shadow-xl hover:shadow-[#25D366]/30 transition-all transform hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] text-center uppercase tracking-wide"
-              >
-                <MessageCircle className="w-6 h-6 fill-white text-white shrink-0" />
-                <span>CONNECT ON WHATSAPP NOW</span>
-              </a>
+            {/* Primary CTAs: WhatsApp + Instant Order Estimator */}
+            <div className="w-full sm:w-auto flex flex-col items-center sm:items-start gap-3">
+              <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
+                <a
+                  id="hero-primary-cta"
+                  href={getWhatsAppUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#1EBE5D] text-white text-base sm:text-lg font-extrabold px-7 py-4 rounded-2xl shadow-lg shadow-[#25D366]/25 hover:shadow-xl hover:shadow-[#25D366]/30 transition-all transform hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] text-center uppercase tracking-wide whitespace-nowrap"
+                >
+                  <MessageCircle className="w-6 h-6 fill-white text-white shrink-0" />
+                  <span>CONNECT ON WHATSAPP</span>
+                </a>
 
-              {/* Phone display & Reassurance */}
-              <div className="flex flex-col sm:flex-row items-center sm:items-baseline gap-1.5 sm:gap-3 text-xs sm:text-sm text-[#7F613D] pt-1">
-                <span className="font-bold text-[#291D11]">{WHATSAPP_DISPLAY_PHONE}</span>
+                <a
+                  id="hero-estimator-jump-cta"
+                  href="#order-estimator"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#291D11] hover:bg-[#42301D] text-white text-sm sm:text-base font-bold px-6 py-4 rounded-2xl shadow-md transition-all active:scale-[0.99] text-center whitespace-nowrap"
+                >
+                  <Calculator className="w-5 h-5 text-[#25D366]" />
+                  <span>INSTANT ORDER ESTIMATOR</span>
+                </a>
+              </div>
+
+              {/* Phone display with Click-to-Call & Reassurance */}
+              <div className="flex flex-col sm:flex-row items-center sm:items-baseline gap-2 sm:gap-3 text-xs sm:text-sm text-[#7F613D] pt-1">
+                <div className="flex items-center gap-1.5 font-bold text-[#291D11]">
+                  <span>Contact:</span>
+                  <a 
+                    href={CALL_PHONE_URL}
+                    className="hover:text-[#25D366] transition-colors underline decoration-dotted"
+                    title="Click to call"
+                  >
+                    {WHATSAPP_DISPLAY_PHONE}
+                  </a>
+                </div>
                 <span className="hidden sm:inline text-[#D4BEA1]">•</span>
                 <a href="#customer-reviews" className="inline-flex items-center gap-1 font-semibold text-[#61482D] hover:text-[#291D11] transition-colors">
                   <span className="text-[#F59E0B] font-bold">★ 4.4/5</span>
@@ -89,12 +132,12 @@ export const Hero: React.FC = () => {
                     <ShieldCheck className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-xs font-bold text-[#291D11]">Ready-to-Pack Cartons</div>
-                    <div className="text-[11px] text-[#7F613D]">Standard 3-Ply & Heavy 5-Ply</div>
+                    <div className="text-xs font-bold text-[#291D11]">Complete Moving Packs</div>
+                    <div className="text-[11px] text-[#7F613D]">Cartons + Tapes + Bubble Wrap</div>
                   </div>
                 </div>
                 <span className="bg-[#291D11] text-[#FAF7F2] text-[11px] font-bold px-2.5 py-1 rounded-md">
-                  24h Dispatch
+                  Next Day Delivery
                 </span>
               </div>
             </div>

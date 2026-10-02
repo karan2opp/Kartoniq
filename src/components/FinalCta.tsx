@@ -1,6 +1,6 @@
 import React from 'react';
-import { MessageCircle, Clock, MapPin, Truck } from 'lucide-react';
-import { getWhatsAppUrl, WHATSAPP_DISPLAY_PHONE } from '../utils/whatsapp';
+import { MessageCircle, Clock, MapPin, Truck, Phone } from 'lucide-react';
+import { getWhatsAppUrl, WHATSAPP_DISPLAY_PHONE, CALL_PHONE_URL } from '../utils/whatsapp';
 
 export const FinalCta: React.FC = () => {
   return (
@@ -8,9 +8,9 @@ export const FinalCta: React.FC = () => {
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         
         {/* Urgent Badge */}
-        <div className="inline-flex items-center gap-2 bg-[#291D11] text-[#25D366] text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full mb-6 shadow-sm">
+        <div className="inline-flex items-center gap-2 bg-[#291D11] text-[#25D366] text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full mb-6 shadow-xs">
           <Truck className="w-4 h-4" />
-          <span>Need cartons urgently for your move?</span>
+          <span>Need cartons & packing supplies urgently for your move?</span>
         </div>
 
         {/* Emotional Headline */}
@@ -21,12 +21,12 @@ export const FinalCta: React.FC = () => {
 
         {/* Supporting Copy */}
         <p className="text-base sm:text-lg text-[#61482D] leading-relaxed max-w-xl mx-auto mb-4">
-          Tell KARTONIQ what you need and we'll help you get your cartons sorted.
+          Tell KARTONIQ what you need—boxes, heavy brown sealing tape, or bubble wrap—and we'll have your package ready and delivered.
         </p>
 
         {/* Concise delivery reminder */}
         <p className="text-xs sm:text-sm font-semibold text-[#7F613D] max-w-lg mx-auto mb-8 bg-white/80 border border-[#E6D8C5] p-3 rounded-xl">
-          Order today and get them delivered within 24 hours across Noida & Greater Noida. <br className="hidden sm:block" />
+          Order today and get doorstep delivery next day across Noida & Greater Noida. <br className="hidden sm:block" />
           <strong>₹99 delivery on orders up to ₹999. FREE delivery above ₹999.</strong>
         </p>
 
@@ -45,8 +45,16 @@ export const FinalCta: React.FC = () => {
 
           {/* Location & Speed & Number */}
           <div className="flex flex-col items-center gap-1 text-xs sm:text-sm text-[#7F613D] pt-3">
-            <span className="font-bold text-[#291D11] text-base">{WHATSAPP_DISPLAY_PHONE}</span>
-            <span className="font-medium text-[#61482D]">Noida & Greater Noida • Delivery Within 24 Hours</span>
+            <div className="flex items-center gap-1.5 font-bold text-[#291D11] text-base">
+              <span>Contact:</span>
+              <a 
+                href={CALL_PHONE_URL}
+                className="hover:text-[#25D366] transition-colors underline decoration-dotted"
+              >
+                {WHATSAPP_DISPLAY_PHONE}
+              </a>
+            </div>
+            <span className="font-medium text-[#61482D]">Noida & Greater Noida • Next Day Delivery</span>
           </div>
         </div>
 

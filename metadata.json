@@ -1,6 +1,6 @@
 {
   "name": "KARTONIQ - Home Moving Cartons Delivery",
-  "description": "High-conversion home shifting carton delivery service across Noida & Greater Noida. Order quality 3-ply and 5-ply cartons with 24-hour doorstep delivery.",
+  "description": "High-conversion home shifting carton delivery service across Noida & Greater Noida. Order quality 3-ply and 5-ply cartons with next day doorstep delivery.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
